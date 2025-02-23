@@ -1,5 +1,14 @@
 # RAG Pipeline
 
+[![PyPI Version](https://img.shields.io/pypi/v/rag_pipeline)](https://pypi.org/project/rag_pipeline/)
+[![Python Versions](https://img.shields.io/pypi/pyversions/rag_pipeline)](https://pypi.org/project/rag_pipeline/)
+[![License](https://img.shields.io/github/license/salimkhazem/rag-pipeline)](https://github.com/salimkhazem/rag-pipeline/blob/main/LICENSE)
+[![Build Status](https://img.shields.io/github/actions/workflow/status/salimkhazem/rag-pipeline/ci.yml)](https://github.com/salimkhazem/rag-pipeline/actions)
+[![Downloads](https://img.shields.io/pypi/dm/rag_pipeline)](https://pypi.org/project/rag_pipeline/)
+[![Stars](https://img.shields.io/github/stars/salimkhazem/rag-pipeline)](https://github.com/salimkhazem/rag-pipeline/stargazers)
+[![Forks](https://img.shields.io/github/forks/salimkhazem/rag-pipeline)](https://github.com/salimkhazem/rag-pipeline/network/members)
+[![Issues](https://img.shields.io/github/issues/salimkhazem/rag-pipeline)](https://github.com/salimkhazem/rag-pipeline/issues)
+
 A Python library for building Retrieval-Augmented Generation (RAG) systems using Azure OpenAI and FAISS.
 
 ## Features
