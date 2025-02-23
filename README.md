@@ -107,12 +107,18 @@ docker run --rm -v $(pwd)/../../Matcheen/fiches_postes:/app/data rag-pipeline /a
 
 ```
 rag-pipeline/
+├── rag_pipeline/      # Main package
+│   ├── __init__.py
+│   ├── pipeline.py
+│   ├── utils.py
+│   ├── vector_stores.py
 ├── sample.py          # Indexing script
 ├── summarize.py       # Summarization script
 ├── setup.py           # Package setup file
 ├── requirements.txt   # Required dependencies
 ├── README.md          # Documentation
 ├── Dockerfile         # Docker setup
+├── .gitignore
 ```
 
 ## Contributing
