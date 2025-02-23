@@ -27,8 +27,9 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+          pip install bandit
 
-      - name: Run tests
+      - name: Run Security Checks
         run: |
-          # Replace with your test command, e.g., pytest
           echo "Running tests..."
+          bandit -r rag_pipeline/
