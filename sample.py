@@ -49,14 +49,8 @@ pipeline = RAGPipeline(
     completion_deployment="gpt-4o-mini",
 )
 
-#     "RAG is a method combining retrieval and generation.",
-#     "Azure OpenAI is awesome.",
-# ]
-# pipeline.index_documents(documents)
 
 # Main test function
-
-
 def run_test():
     # Directory containing test files
     test_directory = sys.argv[1]
@@ -66,8 +60,7 @@ def run_test():
 
     # Check if any documents were loaded
     if not documents:
-        print(f"No valid documents found in '{
-              test_directory}'. Please add some .txt or .pdf files.")
+        print(f"No valid documents found in '{test_directory}'. Please add some .txt or .pdf files.")
         return
 
     print(f"Loaded {len(documents)} document(s) for indexing.")

@@ -84,8 +84,7 @@ class RAGPipeline:
                 {"role": "system", "content": "You are a concise summarizer."},
                 {
                     "role": "user",
-                    "content": f"Summarize this text in {
-                        max_length} words or fewer:\n\n{text}",
+                    "content": f"Summarize this text in {max_length} words or fewer:\n\n{text}",
                 },
             ],
             max_tokens=max_length * 2,
