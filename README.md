@@ -83,6 +83,26 @@ documents = [{"text": "Retrieval-Augmented Generation enhances AI capabilities."
 pipeline.index_documents(documents)
 ```
 
+## Running with Docker
+
+### Build the Docker Image
+
+```bash
+docker build -t rag-pipeline .
+```
+
+### Run the Container with Your Folder
+
+```bash
+docker run --rm -v $(pwd)/../../Matcheen/fiches_postes:/app/data rag-pipeline /app/data
+```
+
+### Explanation:
+
+- `--rm` → Removes the container after execution.
+- `-v $(pwd)/../../Matcheen/fiches_postes:/app/data` → Mounts your local folder into `/app/data` inside the container.
+- `/app/data` → Passed as an argument to `summarize.py`, which expects the directory path.
+
 ## Project Structure
 
 ```
@@ -92,6 +112,7 @@ rag-pipeline/
 ├── setup.py           # Package setup file
 ├── requirements.txt   # Required dependencies
 ├── README.md          # Documentation
+├── Dockerfile         # Docker setup
 ```
 
 ## Contributing
