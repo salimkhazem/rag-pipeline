@@ -3,8 +3,8 @@
 from setuptools import setup, find_packages
 
 setup(
-    name="rag-pipeline",
-    version="0.1.0",
+    name="rag_pipeline",
+    version="0.1.2",
     packages=find_packages(),
     install_requires=["openai", "faiss-cpu", "numpy", "pdfplumber"],
     author="Salim Khazem",
