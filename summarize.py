@@ -59,9 +59,7 @@ def run_test():
 
     if not documents:
         print(
-            f"No valid documents found in \ 
-        '{test_directory}'. Please add some .txt or .pdf files."
-        )
+            f"No valid documents found in '{test_directory}'. Please add some .txt or .pdf files.")
         return
 
     print(f"Loaded {len(documents)} document(s) for summarization.")
