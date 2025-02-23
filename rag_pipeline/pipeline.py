@@ -67,15 +67,31 @@ class RAGPipeline:
         """
         passages = []
         for doc in documents:
-            doc_passages = split_into_passages(
-                doc, self.chunk_size, self.overlap)
+            doc_passages = split_into_passages(doc, self.chunk_size, self.overlap)
             passages.extend(doc_passages)
 
         embeddings = np.array([self.get_embedding(p) for p in passages])
         if self.vector_store is None:
-            self.vector_store = FaissVectorStore(
-                embedding_dim=embeddings.shape[1])
+            self.vector_store = FaissVectorStore(embedding_dim=embeddings.shape[1])
         self.vector_store.add(embeddings, passages)
+
+    def summarize(self, text, max_length=100):
+        if not isinstance(text, str):
+            raise TypeError(f"Expected string input, got {type(text)}: {text}")
+        response = self.client.chat.completions.create(
+            model=self.completion_deployment,
+            messages=[
+                {"role": "system", "content": "You are a concise summarizer."},
+                {
+                    "role": "user",
+                    "content": f"Summarize this text in {
+                        max_length} words or fewer:\n\n{text}",
+                },
+            ],
+            max_tokens=max_length * 2,
+            temperature=0.3,
+        )
+        return response.choices[0].message.content.strip()
 
     def query(self, question, top_k=5):
         """
