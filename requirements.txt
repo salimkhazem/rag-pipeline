@@ -1,6 +1,6 @@
 # requirements.txt
 
 openai==1.61.1
-faiss-cpu==1.10.0
+faiss-cpu
 numpy==1.26.4
 pdfplumber==0.11.5
