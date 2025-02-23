@@ -1,0 +1,65 @@
+# Python-specific ignores
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environment
+.python-version
+
+# Dependency directories
+pip-wheel-metadata/
+wheels/
+*.whl
+
+# Sensitive files
+*.env  # Environment variable files with API keys
+*.key  # Any key files
+*.pem  # Certificates
+*.p12  # PKCS12 files
+credentials.json  # Common credential file name
+
+# Test files and data
+test_files/  # Your test directory with PDFs
+*.txt  # Unless you want specific test .txt files tracked
+*.pdf  # Avoid committing PDFs, especially if sensitive
+
+# Logs and temporary files
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Editor/IDE files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+
+# OS-specific files
+.DS_Store  # macOS
+Thumbs.db  # Windows
+
+# Coverage and testing
+.coverage
+*.coverage
+coverage.xml
+htmlcov/
+.pytest_cache/
+nosetests.xml
+junit.xml
+
+# Miscellaneous
+*.bak
+*.cache
+*.ipynb_checkpoints/
