@@ -3,6 +3,7 @@
 [![PyPI Version](https://img.shields.io/pypi/v/rag_pipeline)](https://pypi.org/project/rag_pipeline/)
 [![License](https://img.shields.io/github/license/salimkhazem/rag-pipeline)](https://github.com/salimkhazem/rag-pipeline/blob/main/LICENSE)
 [![Issues](https://img.shields.io/github/issues/salimkhazem/rag-pipeline)](https://github.com/salimkhazem/rag-pipeline/issues)
+![CI Pipeline](https://github.com/salimkhazem/rag-pipeline/actions/workflows/ci.yml/badge.svg)
 
 A Python library for building Retrieval-Augmented Generation (RAG) systems using Azure OpenAI and FAISS.
 
