@@ -32,6 +32,7 @@ jobs:
       - name: Run Linting (Check Code Style)
         run: |
           flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+
       - name: Run Security Checks
         run: |
           echo "Running tests..."
