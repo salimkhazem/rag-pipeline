@@ -1,5 +1,6 @@
 # rag_pipeline/pipeline.py
 
+from openai import AzureOpenAI
 import openai
 import numpy as np
 from .vector_stores import FaissVectorStore
@@ -15,6 +16,7 @@ class RAGPipeline:
         self,
         azure_endpoint,
         api_key,
+        api_version,
         embedding_deployment,
         completion_deployment,
         chunk_size=500,
@@ -32,11 +34,9 @@ class RAGPipeline:
             overlap (int): Overlap between passages in words.
         """
         # Configure Azure OpenAI
-        openai.api_type = "azure"
-        openai.api_base = azure_endpoint
-        openai.api_version = "2023-05-15"  # Adjust based on your Azure version
-        openai.api_key = api_key
-
+        self.client = AzureOpenAI(
+            api_key=api_key, api_version=api_version, azure_endpoint=azure_endpoint
+        )
         self.embedding_deployment = embedding_deployment
         self.completion_deployment = completion_deployment
         self.chunk_size = chunk_size
@@ -53,9 +53,10 @@ class RAGPipeline:
         Returns:
             np.ndarray: The embedding vector.
         """
-        response = openai.Embedding.create(
-            input=text, engine=self.embedding_deployment)
-        return np.array(response["data"][0]["embedding"])
+        response = self.client.embeddings.create(
+            input=text, model=self.embedding_deployment
+        )
+        return np.array(response.data[0].embedding)
 
     def index_documents(self, documents):
         """
@@ -94,8 +95,8 @@ class RAGPipeline:
             + "\n\n".join(retrieved_passages)
         )
 
-        response = openai.ChatCompletion.create(
-            engine=self.completion_deployment,
+        response = self.client.chat.completions.create(
+            model=self.completion_deployment,
             messages=[
                 {"role": "system", "content": system_message},
                 {"role": "user", "content": question},
@@ -103,4 +104,4 @@ class RAGPipeline:
             max_tokens=150,
             temperature=0.7,
         )
-        return response["choices"][0]["message"]["content"]
+        return response.choices[0].message.content
